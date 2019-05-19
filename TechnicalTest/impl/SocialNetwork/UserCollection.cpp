@@ -11,10 +11,10 @@ UserCollection::~UserCollection()
 
 void UserCollection::addUser(const User& user)
 {
-	auto result = users.emplace(std::make_pair(user.id, user));
+    auto result = users.emplace(std::make_pair(user.id, user));
     if(false == result.second)
         return;
-	names.  emplace(std::make_pair(user.name, user.id));
+    names.  emplace(std::make_pair(user.name, user.id));
 	ages.   emplace(std::make_pair(user.age, user.id));
 	std::for_each(user.hobbies.begin(), user.hobbies.end(), 
 		[=](std::string hobbie) { hobbies.emplace(std::make_pair(hobbie, user.id)); });
@@ -22,9 +22,9 @@ void UserCollection::addUser(const User& user)
 
 void UserCollection::deleteUser(const User& user)
 {
-	auto range_names = names.equal_range(user.name);
+    auto range_names = names.equal_range(user.name);
     deleteFromSearchingList(user, range_names, names);
-	auto range_ages = ages.equal_range(user.age);
+    auto range_ages = ages.equal_range(user.age);
     deleteFromSearchingList(user, range_ages, ages);
     for(const auto& hobbie: user.hobbies)
     {

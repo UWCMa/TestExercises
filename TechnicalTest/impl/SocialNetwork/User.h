@@ -21,7 +21,7 @@ struct User
 	unsigned int            age;
 	float                   height;
 	std::list<std::string>  hobbies;
-	std::list<unsigned int> friends;
+    std::list<unsigned int> friends;
     unsigned int            id;
     
 	friend bool operator<(const User& lft, const User& rht)
